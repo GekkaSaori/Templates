@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{array}
+\usepackage{fontspec}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{lastpage}
+\usepackage{titlesec}
+\usepackage[shortlabels]{enumitem}
+\linespread{1.287}
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+\setlist[enumerate]{nosep}
+\begin{document}
+\newpagestyle{main}{
+    \sethead{\ContestName}{}{\ContestType \ContestDate}
+    \setfoot{}{第\thepage{}页共\pageref{LastPage} 页}{}
+    \headrule
+}
+\pagestyle{main}
+\protected\def\pdfliteral{\pdfextension literal}
+\newcommand{\BoldAsWord}[1]{{\pdfliteral{2 Tr 0.2857 w}#1\pdfliteral{0 Tr}}}
+\newcommand{\SlantAsWord}[1]{{\pdfliteral{1 0 0.3333 1 0 0 cm}#1\pdfliteral{1 0 -0.3333 1 0 0 cm}}}
+\newcommand{\hei}[1]{{\fontspec{SimHei}{#1}}}
+\newcommand{\kai}[1]{{\fontspec{KaiTi_GB2312}{#1}}}
+\newcommand{\tnr}[1]{{\fontspec{Times New Roman}{#1}}}
+\newcommand{\cn}[1]{{\fontspec{Courier New}{#1}}}
+\setmainfont{Times New Roman}
+\input{Settings}
+\begin{center}\zihao{3}{\textbf{\ContestName}}\end{center}
+\begin{center}\zihao{-1}{\heiti{\ContestType\hspace{1em}\hei{\ContestDate}}}\end{center}
+\begin{center}\zihao{4}{\kaishu{\BoldAsWord{（请选手务必仔细阅读本页内容）}}}\end{center}
+\ \par
+\zihao{5}
+\noindent\vspace{0.5pt}\hspace{-1em}\BoldAsWord{一.题目概况}\par
+\noindent
+\makebox[\linewidth][c]{
+\begin{tabular}{|m{3.69cm}<{\centering}|m{3.69cm}<{\centering}|m{3.69cm}<{\centering}|m{3.69cm}<{\centering}|}
+\hline
+中文题目名称&\ChineseNameA&\ChineseNameB&\ChineseNameC\\
+\hline
+英文题目与子目录名&\EnglishNameA&\EnglishNameB&\EnglishNameC\\
+\hline
+可执行文件名&\EnglishNameA&\EnglishNameB&\EnglishNameC\\
+\hline
+输入文件名&\EnglishNameA.in&\EnglishNameB.in&\EnglishNameC.in\\
+\hline
+输出文件名&\EnglishNameA.out&\EnglishNameB.out&\EnglishNameC.out\\
+\hline
+每个测试点时限&\TimeLimitA 秒&\TimeLimitB 秒&\TimeLimitC 秒\\
+\hline
+测试点数目&\TestPtsNumA&\TestPtsNumB&\TestPtsNumC\\
+\hline
+每个测试点分值&\TestPtsScoA&\TestPtsScoB&\TestPtsScoC\\
+\hline
+附加样例文件&\AddiSampleA&\AddiSampleB&\AddiSampleC\\
+\hline
+结果比较方式&\multicolumn{3}{c|}{\CheckMethod}\\
+\hline
+题目类型&\ProblemTypeA&\ProblemTypeB&\ProblemTypeC\\
+\hline
+运行内存上限&\MemoryLimitA M&\MemoryLimitB M&\MemoryLimitC M\\
+\hline
+\end{tabular}
+}
+　\par
+\noindent\vspace{0.5pt}\hspace{-1em}\BoldAsWord{二.提交源程序文件名}
+
+\noindent
+\makebox[\linewidth][c]{
+\begin{tabular}{|m{3.69cm}<{\centering}|m{3.69cm}<{\centering}|m{3.69cm}<{\centering}|m{3.69cm}<{\centering}|}
+\hline
+对于C++语言&\EnglishNameA.cpp&\EnglishNameB.cpp&\EnglishNameC.cpp\\
+\hline
+对于C语言&\EnglishNameA.c&\EnglishNameB.c&\EnglishNameC.c\\
+\hline
+对于Pascal语言&\EnglishNameA.pas&\EnglishNameB.pas&\EnglishNameC.pas\\
+\hline
+\end{tabular}
+}
+　\par
+\noindent\vspace{0.5pt}\hspace{-1em}\BoldAsWord{三．编译命令（不包含任何优化开关）}
+
+\noindent
+\makebox[\linewidth][c]{
+\begin{tabular}{|m{3.69cm}<{\centering}|m{3.69cm}<{\centering}|m{3.69cm}<{\centering}|m{3.69cm}<{\centering}|}
+\hline
+对于C++语言&g++ -o \EnglishNameA\ \EnglishNameA.cpp -lm&g++ -o \EnglishNameB\ \EnglishNameB.cpp -lm&g++ -o \EnglishNameC\ \EnglishNameC.cpp -lm\\
+\hline
+对于C语言&gcc -o \EnglishNameA\ \EnglishNameA.cpp -lm&gcc -o \EnglishNameB\ \EnglishNameB.cpp -lm&gcc -o \EnglishNameC\ \EnglishNameC.cpp -lm\\
+\hline
+对于Pascal语言&fpc \EnglishNameA.pas&fpc \EnglishNameB.pas&fpc \EnglishNameC.pas\\
+\hline
+\end{tabular}
+}
+　\par
+\noindent\hspace{-1em}\BoldAsWord{注意事项：}\\
+\hspace{-1em}\Notice
+\newpage
+\end{document}
