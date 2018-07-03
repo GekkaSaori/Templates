@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{ctex}
 \usepackage{array}
+\usepackage{iftex}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{fontspec}
@@ -22,7 +23,11 @@
     \headrule
 }
 \pagestyle{main}
+\ifLuaTeX
 \protected\def\pdfliteral{\pdfextension literal}
+\else
+\def\pdfliteral#1{\special{pdf:literal direct #1}}
+\fi
 \newcommand{\BoldAsWord}[1]{{\pdfliteral{2 Tr 0.2857 w}#1\pdfliteral{0 Tr}}}
 \newcommand{\SlantAsWord}[1]{{\pdfliteral{1 0 0.3333 1 0 0 cm}#1\pdfliteral{1 0 -0.3333 1 0 0 cm}}}
 \newcommand{\hei}[1]{{\fontspec{SimHei}{#1}}}
